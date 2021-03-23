@@ -9,6 +9,7 @@ class MenuModel {
 }
 
 List<MenuModel> menuList = [
+  MenuModel(title: "Dashboard", icon: "assets/icons/icon_home.svg"),
   MenuModel(title: "Profile", icon: "assets/icons/icon_profile.svg"),
   MenuModel(title: "Orders", icon: "assets/icons/icon_order.svg"),
   MenuModel(

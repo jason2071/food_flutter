@@ -19,13 +19,17 @@ class DrawerScreen extends StatelessWidget {
         children: [
           ...List.generate(
             menuList.length,
-            (index) => MenuItem(
-              title: menuList[index].title,
-              iconSrc: menuList[index].icon,
-              press: () {
-                context.read<DrawerNotifier>().setCurrendPage(index);
-              },
-            ),
+            (index) {
+              return (index == 0)
+                  ? Container()
+                  : MenuItem(
+                      title: menuList[index].title,
+                      iconSrc: menuList[index].icon,
+                      press: () {
+                        context.read<DrawerNotifier>().setCurrendPage(index);
+                      },
+                    );
+            },
           ),
         ],
       ),
