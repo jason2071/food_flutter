@@ -5,8 +5,8 @@ import 'package:food_flutter/providers/drawer_notifer.dart';
 import 'package:provider/provider.dart';
 import 'dart:io' show Platform;
 
-class DetailScreen extends StatelessWidget {
-  static const routeName = '/detail';
+class ProfileScreen extends StatelessWidget {
+  static const routeName = '/profile';
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,7 @@ class DetailScreen extends StatelessWidget {
                 ),
                 SizedBox(
                   child: Text(
-                    "Detail",
+                    "Profile",
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 20,
@@ -61,9 +61,9 @@ class DetailScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Detail"),
-                Text("Detail"),
-                Text("Detail"),
+                Text("Profile"),
+                Text("Profile"),
+                Text("Profile"),
               ],
             ),
           ),
