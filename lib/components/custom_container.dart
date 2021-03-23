@@ -22,7 +22,23 @@ class CustomContainer extends StatelessWidget {
         borderRadius:
             BorderRadius.circular(drawerNotifier.isDrawerOpen ? 40 : 0),
       ),
-      child: child,
+      child: SafeArea(
+        top: false,
+        child: Stack(
+          children: [
+            child,
+            Positioned(
+              left: 0,
+              right: 0,
+              bottom: 0,
+              child: Container(
+                height: 60,
+                color: Colors.orange,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
