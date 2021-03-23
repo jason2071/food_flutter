@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_flutter/constants.dart';
 import 'package:food_flutter/providers/drawer_notifer.dart';
-import 'package:food_flutter/screens/detail/detail_screen.dart';
 import 'package:provider/provider.dart';
 
 class DrawerScreen extends StatelessWidget {
@@ -17,61 +16,59 @@ class DrawerScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ListTile(
-            title: Text(
-              "Detail",
-              style: Theme.of(context)
-                  .textTheme
-                  .headline6
-                  .copyWith(color: Colors.white),
-            ),
-            onTap: () {
-              Navigator.pushNamed(context, DetailScreen.routeName);
-              context.read<DrawerNotifier>().setDrawer(false);
+          MenuItem(
+            title: "Home",
+            press: () {
+              context.read<DrawerNotifier>().setCurrendPage(0);
             },
           ),
           Divider(color: Colors.white),
-          ListTile(
-            title: Text(
-              "Menu 2",
-              style: Theme.of(context)
-                  .textTheme
-                  .headline6
-                  .copyWith(color: Colors.white),
-            ),
+          MenuItem(
+            title: "Detail",
+            press: () {
+              context.read<DrawerNotifier>().setCurrendPage(1);
+            },
           ),
           Divider(color: Colors.white),
-          ListTile(
-            title: Text(
-              "Menu 3",
-              style: Theme.of(context)
-                  .textTheme
-                  .headline6
-                  .copyWith(color: Colors.white),
-            ),
+          MenuItem(
+            title: "Menu 3",
+            press: () {},
           ),
           Divider(color: Colors.white),
-          ListTile(
-            title: Text(
-              "Menu 4",
-              style: Theme.of(context)
-                  .textTheme
-                  .headline6
-                  .copyWith(color: Colors.white),
-            ),
+          MenuItem(
+            title: "Menu 4",
+            press: () {},
           ),
           Divider(color: Colors.white),
-          ListTile(
-            title: Text(
-              "Menu 5",
-              style: Theme.of(context)
-                  .textTheme
-                  .headline6
-                  .copyWith(color: Colors.white),
-            ),
+          MenuItem(
+            title: "Menu 5",
+            press: () {},
           ),
         ],
       ),
+    );
+  }
+}
+
+class MenuItem extends StatelessWidget {
+  const MenuItem({
+    Key key,
+    @required this.title,
+    @required this.press,
+  }) : super(key: key);
+
+  final String title;
+  final Function press;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      title: Text(
+        title,
+        style:
+            Theme.of(context).textTheme.headline6.copyWith(color: Colors.white),
+      ),
+      onTap: press,
     );
   }
 }

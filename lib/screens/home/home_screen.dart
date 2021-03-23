@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:food_flutter/components/custom_container.dart';
 import 'dart:io' show Platform;
 
 import 'package:food_flutter/providers/drawer_notifer.dart';
@@ -22,17 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     DrawerNotifier drawerNotifier = Provider.of<DrawerNotifier>(context);
 
-    return AnimatedContainer(
-      transform: Matrix4.translationValues(
-          drawerNotifier.xOffset, drawerNotifier.yOffset, 0)
-        ..scale(drawerNotifier.scaleFactor)
-        ..rotateY(drawerNotifier.isDrawerOpen ? -0.5 : 0),
-      duration: Duration(milliseconds: 250),
-      decoration: BoxDecoration(
-        color: Colors.grey[200],
-        borderRadius:
-            BorderRadius.circular(drawerNotifier.isDrawerOpen ? 40 : 0),
-      ),
+    return CustomContainer(
       child: Column(
         children: [
           SizedBox(height: kToolbarHeight - (Platform.isIOS ? 0 : 30)),

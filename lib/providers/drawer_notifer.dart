@@ -5,11 +5,13 @@ class DrawerNotifier extends ChangeNotifier {
   double _yOffset = 0;
   double _scaleFactor = 1;
   bool _isDrawerOpen = false;
+  int _currentPage = 0;
 
   double get xOffset => _xOffset;
   double get yOffset => _yOffset;
   double get scaleFactor => _scaleFactor;
   bool get isDrawerOpen => _isDrawerOpen;
+  int get currentPage => _currentPage;
 
   setDrawer(
     bool isDrawerOpen,
@@ -26,6 +28,11 @@ class DrawerNotifier extends ChangeNotifier {
       _isDrawerOpen = false;
     }
 
+    notifyListeners();
+  }
+
+  setCurrendPage(int page) {
+    _currentPage = page;
     notifyListeners();
   }
 }
