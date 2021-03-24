@@ -9,7 +9,7 @@ class HistoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home"),
+        title: Text("History"),
         leading: IconButton(
           icon: Icon(Icons.menu),
           onPressed: () {

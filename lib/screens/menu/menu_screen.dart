@@ -37,7 +37,6 @@ class MenuScreen extends StatelessWidget {
                   leading: Icon(
                     item.icon,
                     color: Colors.white,
-                    size: 20,
                   ),
                   title: Text(
                     item.title,
@@ -47,6 +46,9 @@ class MenuScreen extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
+                  onTap: () {
+                    print(item.title);
+                  },
                 );
               }).toList(),
             ),

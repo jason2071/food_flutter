@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:food_flutter/controller/menu_controller.dart';
 import 'package:provider/provider.dart';
 
-class FavoriteScreen extends StatelessWidget {
-  static const routeName = '/favorite';
+class ProfileScreen extends StatelessWidget {
+  static const routeName = '/profile';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Favorite"),
+        title: Text("Profile"),
         leading: IconButton(
           icon: Icon(Icons.menu),
           onPressed: () {
@@ -18,7 +18,7 @@ class FavoriteScreen extends StatelessWidget {
         ),
       ),
       body: Container(
-        child: Text("Favorite"),
+        child: Text("Profile"),
       ),
     );
   }
