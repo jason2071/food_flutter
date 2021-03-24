@@ -33,27 +33,6 @@ class _ZoomScaffoldState extends State<ZoomScaffold>
     return zoomAndSlideContent(
       new Container(
         child: new Scaffold(
-          backgroundColor: Colors.transparent,
-          appBar: new AppBar(
-              backgroundColor: Colors.grey[200],
-              elevation: 0.0,
-              leading: new IconButton(
-                  icon: Icon(
-                    Icons.menu,
-                    color: Colors.black,
-                  ),
-                  onPressed: () {
-                    context.read<MenuController>().toggle();
-                  }),
-              actions: <Widget>[
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.access_time,
-                    color: Colors.grey,
-                  ),
-                )
-              ]),
           body: widget.contentScreen.contentBuilder(context),
           bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
