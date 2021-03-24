@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_flutter/providers/drawer_notifer.dart';
+import 'package:food_flutter/size_config.dart';
 import 'package:provider/provider.dart';
 
 class CustomContainer extends StatelessWidget {
@@ -9,6 +10,7 @@ class CustomContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     DrawerNotifier drawerNotifier = Provider.of<DrawerNotifier>(context);
 
     return AnimatedContainer(
@@ -22,22 +24,27 @@ class CustomContainer extends StatelessWidget {
         borderRadius:
             BorderRadius.circular(drawerNotifier.isDrawerOpen ? 40 : 0),
       ),
-      child: SafeArea(
-        top: false,
-        child: Stack(
-          children: [
-            child,
-            Positioned(
-              left: 0,
-              right: 0,
-              bottom: 0,
-              child: Container(
-                height: 60,
-                color: Colors.orange,
+      child: Stack(
+        children: [
+          child,
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 0,
+            child: Container(
+              height: SizeConfig.screenHeight * 0.1,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  bottomLeft:
+                      Radius.circular(drawerNotifier.isDrawerOpen ? 40 : 0),
+                  bottomRight:
+                      Radius.circular(drawerNotifier.isDrawerOpen ? 40 : 0),
+                ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
