@@ -6,8 +6,9 @@ class UserScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("User")),
-      body: Container(),
+      body: Container(
+        child: Text("User"),
+      ),
     );
   }
 }
