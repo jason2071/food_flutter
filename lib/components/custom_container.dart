@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 
 class CustomContainer extends StatelessWidget {
   const CustomContainer({Key key, this.child}) : super(key: key);
-
   final Widget child;
 
   @override
@@ -24,28 +23,7 @@ class CustomContainer extends StatelessWidget {
         borderRadius:
             BorderRadius.circular(drawerNotifier.isDrawerOpen ? 40 : 0),
       ),
-      child: Stack(
-        children: [
-          child,
-          Positioned(
-            left: 0,
-            right: 0,
-            bottom: 0,
-            child: Container(
-              height: SizeConfig.screenHeight * 0.1,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  bottomLeft:
-                      Radius.circular(drawerNotifier.isDrawerOpen ? 40 : 0),
-                  bottomRight:
-                      Radius.circular(drawerNotifier.isDrawerOpen ? 40 : 0),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
+      child: child,
     );
   }
 }
