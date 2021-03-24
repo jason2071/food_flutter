@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:food_flutter/components/circular_image.dart';
 import 'package:food_flutter/constants.dart';
 import 'package:food_flutter/controller/menu_controller.dart';
 import 'package:provider/provider.dart';
 
 class MenuScreen extends StatelessWidget {
-  final String imageUrl =
-      "https://celebritypets.net/wp-content/uploads/2016/12/Adriana-Lima.jpg";
-
   final List<MenuItem> options = [
     MenuItem(Icons.search, 'Search'),
     MenuItem(Icons.shopping_basket, 'Basket'),
@@ -21,7 +17,7 @@ class MenuScreen extends StatelessWidget {
     return GestureDetector(
       onPanUpdate: (details) {
         if (details.delta.dx < -6) {
-          Provider.of<MenuController>(context, listen: true).toggle();
+          context.read<MenuController>().toggle();
         }
       },
       child: Container(
@@ -34,23 +30,6 @@ class MenuScreen extends StatelessWidget {
         color: kPrimaryColor,
         child: Column(
           children: <Widget>[
-            Row(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(right: 16),
-                  child: CircularImage(
-                    NetworkImage(imageUrl),
-                  ),
-                ),
-                Text(
-                  'Tatiana',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                  ),
-                )
-              ],
-            ),
             Spacer(),
             Column(
               children: options.map((item) {
@@ -63,9 +42,10 @@ class MenuScreen extends StatelessWidget {
                   title: Text(
                     item.title,
                     style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
                 );
               }).toList(),
@@ -73,25 +53,8 @@ class MenuScreen extends StatelessWidget {
             Spacer(),
             ListTile(
               onTap: () {},
-              leading: Icon(
-                Icons.settings,
-                color: Colors.white,
-                size: 20,
-              ),
               title: Text(
-                'Settings',
-                style: TextStyle(fontSize: 14, color: Colors.white),
-              ),
-            ),
-            ListTile(
-              onTap: () {},
-              leading: Icon(
-                Icons.headset_mic,
-                color: Colors.white,
-                size: 20,
-              ),
-              title: Text(
-                'Support',
+                'Logout',
                 style: TextStyle(fontSize: 14, color: Colors.white),
               ),
             ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:food_flutter/controller/menu_controller.dart';
-import 'package:food_flutter/controller/user_controller.dart';
 import 'package:food_flutter/routes.dart';
 import 'package:food_flutter/screens/favorite/favorite_screen.dart';
 import 'package:food_flutter/screens/history/history_screen.dart';
